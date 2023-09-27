@@ -50,31 +50,16 @@ const BoardComponent: react.FC = () => {
         // })
     }
 
-    // const goBack = () => {
-    //     const history = board.history.target
-        
+    const goBack = () => {
+        const newTarget = board.history.pop()
+        if(newTarget) {
+            clickHandler(newTarget)
+            console.log(newTarget)
+        }
+    }
 
-        
-    //         console.log(history.at(-1))
-    //         const backup = history.pop()
-    //             console.log(backup)
- 
-    //         if(backup) {
-    //             clickHandler(backup)
-    //         }
-        
-                
-        
-    //     // while (history.length) {
-    //     //     setTimeout(() => {
-    //     //         history.pop()
-    //     //         console.log(history)
-    //     //     }, 1000)
-    //     // }
-    // }
-
-    console.log(board.cells)
-    console.log(board.startPosition)
+    // console.log(board.cells)
+    // console.log(board.startPosition)
     // console.log([[1,2], [3, 4]] == [[1, 2], [3, 4]])
     return(
         <>

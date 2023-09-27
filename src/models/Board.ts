@@ -1,10 +1,11 @@
 import { Cell } from "./Cell";
-import { IHistory } from "./IavailableWays";
+// import { IHistory } from "./IavailableWays";
 
 export class Board {
     cells:Cell[][] = []
     startPosition:Cell[][] = []
     inBackup:boolean = false
+    history: Cell[] = []
 
     constructor(){
         let v = 0
@@ -46,26 +47,34 @@ export class Board {
     //     return this.cells[x][y]
     // }
 
-    // public changeHistory (target:Cell, start:Cell) {
-    //     this.history?.target.push(target)
-    //     this.history?.this.push(start)
-    // }
+    public changeHistory (target:Cell) {
+        this.history?.push(target)
+        // this.history?.this.push(start)
+    }
+
+    popHistory () {
+        this.history.pop()
+    }
 
     copyBoard() {
         const newBoard = new Board()
         newBoard.cells = this.cells
         newBoard.startPosition = this.startPosition
-        // newBoard.history = this.history
+        newBoard.history = this.history
         // console.log(newBoard.history)
         return newBoard
     }
+
+    // getHistoryLast() {
+    //     return this.history.at(-1)
+    // }
 
     randomize() {
         let realTarget:Cell | undefined
         let available:Cell[] | null = []  
            
         function randomNumber () {
-            let range = 400 + Math.random()*100
+            let range = 20 + Math.random()*10
             return Math.floor(range)
         }
         let size = randomNumber()

@@ -77,14 +77,10 @@ export class Cell {
     }
     
     moveChip(target:Cell) {
-        // console.log(this)
-        // console.log(this.board.history.target.pop() == this)
-
+            this.board.changeHistory(target)
+            this.setChip(target)
+            // console.log(this.board.history)
         
-        this.setChip(target)
-        // console.log(this.board.history)
-        
-        // console.log(this.board.history)
         
         // setTimeout(() => {
         //     history.target[0].moveChip(history.this[0])
